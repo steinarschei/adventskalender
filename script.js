@@ -1,9 +1,9 @@
 const calendar = document.querySelector('.calendar');
 const today = new Date();
 const day = today.getDate();
-const month = today.getMonth() + 1; // desember = 12
+const month = today.getMonth() + 1; // desember = 12, men vi tester i november (11)
 
-// ✉️ Meldinger bak lukene (legg inn egne her!)
+// ✉️ Meldinger bak lukene
 const messages = [
   "Du er min favorittperson ❤️",
   "I dag får du en klem når du står opp 🤗",
@@ -51,8 +51,10 @@ for (let i = 1; i <= 24; i++) {
   inner.appendChild(back);
   door.appendChild(inner);
 
-  // Gjør luka aktiv kun hvis dagens dato >= i (og det er desember)
+  // midlertidig: åpne i november for testing
   if (month === 11 && i <= day) {
+    door.addEventListener('click', () => openDoor(i, door));
+  } else if (month === 12 && i <= day) {
     door.addEventListener('click', () => openDoor(i, door));
   } else {
     door.classList.add('locked');
@@ -61,13 +63,27 @@ for (let i = 1; i <= 24; i++) {
   calendar.appendChild(door);
 }
 
-// 🎄 Åpne luke
 function openDoor(i, door) {
   if (door.classList.contains('open')) return;
-  door.classList.add('open');
 
-  setTimeout(() => {
-    const msg = messages[i - 1] || "Overraskelse 🎄";
-    alert(`🎅 Luke ${i}\n\n${msg}`);
-  }, 700);
+  door.classList.add('open');
+  const msg = messages[i - 1] || "Overraskelse 🎄";
+
+  // ✨ Lag pen popup istedenfor alert()
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+  popup.innerHTML = `
+    <div class="popup-content">
+      <h2>🎅 Luke ${i}</h2>
+      <p>${msg}</p>
+      <button id="closePopup">Lukk</button>
+    </div>
+  `;
+  document.body.appendChild(popup);
+
+  // Lukk popup og "luk" døren igjen
+  popup.querySelector('#closePopup').addEventListener('click', () => {
+    document.body.removeChild(popup);
+    door.classList.remove('open');
+  });
 }
