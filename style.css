@@ -1,43 +1,109 @@
 body {
-  background-image: url('christmas.jpg'); /* Du kan bruke et julete bilde her */
+  margin: 0;
+  padding: 0;
+  background-image: url('christmas.jpg');
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   font-family: 'Comic Sans MS', cursive;
   color: white;
   text-align: center;
+  min-height: 100vh;
 }
 
 h1 {
-  margin-top: 20px;
-  text-shadow: 2px 2px 4px #000;
+  margin-top: 30px;
+  text-shadow: 2px 2px 5px #000;
+  font-size: 2.5em;
 }
 
 .calendar {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  max-width: 600px;
-  margin: 50px auto;
+  gap: 15px;
+  max-width: 700px;
+  margin: 60px auto;
 }
 
 .door {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid #fff;
-  border-radius: 10px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
+  perspective: 800px;
   cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
 }
 
-.door.open {
-  background: gold;
+.door-inner {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.door.open .door-inner {
   transform: rotateY(180deg);
 }
 
-.door.locked {
-  opacity: 0.5;
+.door-front,
+.door-back {
+  position: absolute;
+  backface-visibility: hidden;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 26px;
+}
+
+.door-front {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.door-back {
+  background: gold;
+  color: #000;
+  transform: rotateY(180deg);
+}
+
+.door.locked .door-front {
+  opacity: 0.4;
   cursor: not-allowed;
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+  .calendar {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 90%;
+  }
+
+  .door-inner {
+    height: 80px;
+  }
+
+  .door-front,
+  .door-back {
+    font-size: 22px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .door-inner {
+    height: 70px;
+  }
+
+  .door-front,
+  .door-back {
+    font-size: 18px;
+  }
 }
