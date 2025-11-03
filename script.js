@@ -90,10 +90,15 @@ function openDoor(i, door) {
 function createSnowflake() {
   const snowflake = document.createElement('div');
   snowflake.classList.add('snowflake');
-  snowflake.textContent = '❄️';
+
+  // Fjern emoji
+  // snowflake.textContent = '❄️';
+  snowflake.style.width = snowflake.style.height = Math.random() * 6 + 2 + 'px';
+  snowflake.style.background = 'white';
+  snowflake.style.borderRadius = '50%';
+
   snowflake.style.left = Math.random() * 100 + 'vw';
-  snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
-  snowflake.style.opacity = Math.random();
+  snowflake.style.opacity = Math.random() * 0.9 + 0.1;
   snowflake.style.animationDuration = 5 + Math.random() * 5 + 's';
   document.body.appendChild(snowflake);
 
