@@ -123,23 +123,40 @@ function createSnowflake() {
 // Lag nye snøfnugg kontinuerlig
 setInterval(createSnowflake, 250);
 
-// 🎵 Diskret musikkikon nederst
+// 🎵 Diskret musikkikon nederst + lagring av status
 const music = new Audio('julemusikk.mp3'); // legg MP3 i samme mappe
 music.loop = true;
-let musicPlaying = false;
 
 const musicIcon = document.getElementById('musicIcon');
+let musicPlaying = false;
+
+// 🚀 Hent lagret status fra localStorage
+const savedMusicState = localStorage.getItem('musicPlaying');
+if (savedMusicState === 'true') {
+  music.play();
+  musicPlaying = true;
+  musicIcon.textContent = '🔇';
+} else {
+  musicPlaying = false;
+  musicIcon.textContent = '🔈';
+}
+
+// 🎧 Trykk for å slå av/på musikken
 musicIcon.addEventListener('click', () => {
   if (!musicPlaying) {
     music.play();
     musicPlaying = true;
-    musicIcon.textContent = '🔇'; // endre ikon til mute
+    musicIcon.textContent = '🔇';
   } else {
     music.pause();
     musicPlaying = false;
-    musicIcon.textContent = '🔈'; // endre tilbake
+    musicIcon.textContent = '🔈';
   }
+
+  // 💾 Lagre status slik at den huskes neste gang
+  localStorage.setItem('musicPlaying', musicPlaying);
 });
+
 
 
 
