@@ -167,6 +167,7 @@ h1 {
   z-index: 9999;
   animation-name: fall;
   animation-timing-function: linear;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
 }
 
 @keyframes fall {
