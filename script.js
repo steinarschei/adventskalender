@@ -87,3 +87,22 @@ function openDoor(i, door) {
     door.classList.remove('open');
   });
 }
+
+// 🎵 Musikkavspilling
+const music = new Audio('julemusikk.mp3'); // legg mp3-filen i samme mappe
+music.loop = true;
+let musicPlaying = false;
+
+const musicBtn = document.getElementById('musicToggle');
+musicBtn.addEventListener('click', () => {
+  if (!musicPlaying) {
+    music.play();
+    musicPlaying = true;
+    musicBtn.textContent = "🔇 Slå av musikk";
+  } else {
+    music.pause();
+    musicPlaying = false;
+    musicBtn.textContent = "🔈 Slå på musikk";
+  }
+});
+
