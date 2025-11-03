@@ -89,7 +89,7 @@ function openDoor(i, door) {
 }
 
 // 🎵 Musikkavspilling
-const music = new Audio('julemusikk.mp3'); // legg mp3-filen i samme mappe
+const music = new Audio('piano.mp3'); // legg mp3-filen i samme mappe
 music.loop = true;
 let musicPlaying = false;
 
@@ -122,5 +122,24 @@ function createSnowflake() {
 
 // Lag nye snøfnugg kontinuerlig
 setInterval(createSnowflake, 250);
+
+// 🎵 Diskret musikkikon nederst
+const music = new Audio('julemusikk.mp3'); // legg MP3 i samme mappe
+music.loop = true;
+let musicPlaying = false;
+
+const musicIcon = document.getElementById('musicIcon');
+musicIcon.addEventListener('click', () => {
+  if (!musicPlaying) {
+    music.play();
+    musicPlaying = true;
+    musicIcon.textContent = '🔇'; // endre ikon til mute
+  } else {
+    music.pause();
+    musicPlaying = false;
+    musicIcon.textContent = '🔈'; // endre tilbake
+  }
+});
+
 
 
