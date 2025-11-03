@@ -191,5 +191,24 @@ h1 {
   background: rgba(255, 255, 255, 0.5);
 }
 
+#musicIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  text-shadow: 0 0 6px #000;
+  z-index: 10000;
+  opacity: 0.8;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+#musicIcon:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+
 
 
