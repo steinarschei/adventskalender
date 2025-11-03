@@ -52,9 +52,7 @@ for (let i = 1; i <= 24; i++) {
   door.appendChild(inner);
 
   // midlertidig: åpne i november for testing
-  if (month === 11 && i <= day) {
-    door.addEventListener('click', () => openDoor(i, door));
-  } else if (month === 12 && i <= day) {
+  if ((month === 11 && i <= day) || (month === 12 && i <= day)) {
     door.addEventListener('click', () => openDoor(i, door));
   } else {
     door.classList.add('locked');
@@ -87,24 +85,6 @@ function openDoor(i, door) {
     door.classList.remove('open');
   });
 }
-
-// 🎵 Musikkavspilling
-const music = new Audio('piano.mp3'); // legg mp3-filen i samme mappe
-music.loop = true;
-let musicPlaying = false;
-
-const musicBtn = document.getElementById('musicToggle');
-musicBtn.addEventListener('click', () => {
-  if (!musicPlaying) {
-    music.play();
-    musicPlaying = true;
-    musicBtn.textContent = "🔇 Slå av musikk";
-  } else {
-    music.pause();
-    musicPlaying = false;
-    musicBtn.textContent = "🔈 Slå på musikk";
-  }
-});
 
 // ❄️ Snøfall-animasjon
 function createSnowflake() {
@@ -156,7 +136,3 @@ musicIcon.addEventListener('click', () => {
   // 💾 Lagre status slik at den huskes neste gang
   localStorage.setItem('musicPlaying', musicPlaying);
 });
-
-
-
-
