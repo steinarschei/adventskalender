@@ -52,7 +52,7 @@ for (let i = 1; i <= 24; i++) {
   door.appendChild(inner);
 
   // Gjør luka aktiv kun hvis dagens dato >= i (og det er desember)
-  if (month === 12 && i <= day) {
+  if (month === 11 && i <= day) {
     door.addEventListener('click', () => openDoor(i, door));
   } else {
     door.classList.add('locked');
