@@ -109,7 +109,7 @@ function createSnowflake() {
 setInterval(createSnowflake, 250);
 
 // 🎵 Diskret musikkikon nederst + lagring av status
-const music = new Audio('julemusikk.mp3'); // legg MP3 i samme mappe
+const music = new Audio('piano.mp3'); // legg MP3 i samme mappe
 music.loop = true;
 
 const musicIcon = document.getElementById('musicIcon');
