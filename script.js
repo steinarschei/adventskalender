@@ -120,10 +120,10 @@ const savedMusicState = localStorage.getItem('musicPlaying');
 if (savedMusicState === 'true') {
   music.play();
   musicPlaying = true;
-  musicIcon.textContent = '🔇';
+  musicIcon.textContent = '🔈';
 } else {
   musicPlaying = false;
-  musicIcon.textContent = '🔈';
+  musicIcon.textContent = '🔇';
 }
 
 // 🎧 Trykk for å slå av/på musikken
@@ -131,11 +131,11 @@ musicIcon.addEventListener('click', () => {
   if (!musicPlaying) {
     music.play();
     musicPlaying = true;
-    musicIcon.textContent = '🔇';
+    musicIcon.textContent = '🔈';
   } else {
     music.pause();
     musicPlaying = false;
-    musicIcon.textContent = '🔈';
+    musicIcon.textContent = '🔇';
   }
 
   // 💾 Lagre status slik at den huskes neste gang
