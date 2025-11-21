@@ -11,7 +11,7 @@ const messages = [
   "Du gjør desember mye bedre 🎄",
   "Jeg elsker smilet ditt 😍",
   "I dag skal du få velge middag! 🍝",
-  "Kanskje en liten overraskelse venter i kveld 🎁",
+  "Du er den fineste jeg vet ❤️",
   "Du fortjener all kjærlighet i verden 💌",
   "Et varmt teppe og en god film? 🎬",
   "Du er min julestjerne ⭐",
