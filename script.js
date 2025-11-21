@@ -7,7 +7,7 @@ const month = today.getMonth() + 1; // desember = 12, men vi tester i november (
 const messages = [
   "Du er min favorittperson ❤️",
   "I dag får du en klem når du står opp 🤗",
-  "Et lite kompliment: Du er fantastisk 💫",
+  "Du er fantastisk 💫",
   "Du gjør desember mye bedre 🎄",
   "Jeg elsker smilet ditt 😍",
   "I dag skal du få velge middag! 🍝",
@@ -28,7 +28,7 @@ const messages = [
   "En liten nisse sier hei 🧑‍🎄",
   "I dag får du et smil 😊",
   "Du betyr alt for meg 💕",
-  "God jul, vakreste menneske 🎁❤️"
+  "God jul, elsker deg 🎁❤️"
 ];
 
 // 🎁 Lag luker 1–24
